@@ -1,0 +1,14 @@
+<h1>Jobs#index</h1>
+<p>Find me in app/views/jobs/index.html.erb</p>
+
+<h2>Jobs</h2>
+	<%= link_to "Add Job", new_job_path %>
+	<hr>
+	<% @user.jobs.each do |job| %>
+	<%= link_to "Edit Job", edit_job_path(job.id) %>
+		Origin: <%= job.origin %> <br>
+		Destination: <%= job.destination %> <br>
+		Amount of containers to move: <%= job.containers_needed %><br>
+		Description: <%= job.description %> <br>
+		Pay: <%=job.cost %><hr>
+	<% end %>

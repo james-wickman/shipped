@@ -1,0 +1,19 @@
+<h1>Ships#show</h1>
+<p>Find me in app/views/ships/show.html.erb</p>
+<h2>Ship</h2>
+<%= link_to "Edit Ship", edit_ship_path(@ship.id) %>
+<%= link_to "Delete Ship", ship_path(@ship.id), method: :delete %><br>
+Name: <%= @ship.name %> <br>
+Possible Containers: <%= @ship.containers_possible %> <br>
+Location: <%= @ship.location %> <br>
+<hr>
+<h2>Current Jobs</h2>
+<% @ship.jobs.each do |job| %>
+	Origin: <%= job.origin %><br>
+	Destination: <%= job.destination %><br>
+	Containers Left To Move: <%= job.containers_needed %><br>
+	Pay: <%= job.cost %><br>
+	Description: <%= job.description %><br>
+<% end %>
+<hr>
+<%= render 'jobs/showing_jobs', show: true %>

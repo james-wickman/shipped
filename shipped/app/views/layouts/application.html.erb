@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shipped</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Shipped</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <% if user_signed_in? && !admin_signed_in?%>
+            <li><%= link_to "Home", users_index_path %></li>
+            <li><%= link_to "Edit User Profile", edit_user_registration_path %></li>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+          <% end %>
+          <% if !user_signed_in? && !admin_signed_in?%>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+          <% if !user_signed_in? && admin_signed_in?%>
+            <li><%= link_to "Home", admins_index_path %></li>
+            <li><%= link_to "Edit Admin Profile", edit_admin_registration_path %></li>
+            <li><%= link_to "Log Out", destroy_admin_session_path, method: :delete %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  	<p class="notice"><%= notice %></p>
+  	<p class="alert"><%= alert %></p>
+    <%= yield %>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  </body>
+</html>

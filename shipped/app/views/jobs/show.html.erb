@@ -1,0 +1,11 @@
+<h1>Jobs#show</h1>
+<p>Find me in app/views/jobs/show.html.erb</p>
+
+<h2>Available Jobs</h2>
+<%= @jobs.each do |job| %>
+	Origin: <%= job.origin %>
+	Destination: <%= job.destination %>
+	Containers Left To Move: <%= job.containers_needed %>
+	Pay: <%= job.cost %>
+	Description: <%= job.description %>
+<% end %>

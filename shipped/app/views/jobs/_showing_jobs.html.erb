@@ -1,0 +1,33 @@
+<%@jobs = Job.all%>
+<h2>Available Jobs</h2>
+<% @jobs.each do |job| %>
+	<% if job.origin == ship.location %>
+		<% containers_counter = 0 %>
+		<%if job.ships != nil %>
+			<% job.ships.each do |ship| %>
+				<% containers_counter += ship.containers_possible %>
+				<% if containers_counter > job.containers_needed %>
+					<% containers_counter = ship.containers_possible %> 
+				<% end %>
+			<% end %>
+		<% end %>
+		<% if job.containers_needed > containers_counter %>
+			Origin: <%= job.origin %><br>
+			Destination: <%= job.destination %><br>
+			Containers Left To Move: <%= job.containers_needed - containers_counter %><br>
+			Pay: <%= job.cost %><br>
+			Description: <%= job.description %><br>
+
+			<%if show %>
+			
+				<%= form_for @ship_job, url: ship_jobs_create_path, remote: true, method: :post do |f| -%>
+					<%= f.hidden_field :job_id, value: job.id %>
+					<%= f.hidden_field :ship_id, value: ship.id %><br>
+					<%= f.submit "Add To Ship"%>  
+				<% end %>
+			<% end %>
+		<hr>
+		<% end %>
+	<% end %>
+
+<% end %>

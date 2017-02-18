@@ -1,0 +1,48 @@
+<h1>Admins#index</h1>
+
+<ul class="collapsible collapsible popout" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header">Current Jobs</div>
+      <div class="collapsible-body"><span>
+      	<% @jobs.each do |job| %>
+      	<%= link_to "Delete Job", job_path(job), method: :delete %> <br>
+			<%=job.origin %> <br>
+			<%= job.destination %> <br>
+			<%= job.description %> <hr>
+		<% end %>
+		<%= link_to "Create Job", new_job_path %></span></div>
+    </li>
+    <li>
+      	<div class="collapsible-header">Users</div>
+      	<div class="collapsible-body"><span>
+      		<ul class="collapsible collapsible popout" data-collapsible="accordion">
+		      	<% @users.each do |user| %>
+					 <br>
+					<li>
+				      <div class="collapsible-header"><%= user.first_name %> <%= user.last_name %></div>
+				      <div class="collapsible-body"><span>
+							<%= user.email %>
+						<% if user.ships == [] %>
+							<p>none</p><hr>
+						<% else %>
+							<ul class="collapsible collapsible popout" data-collapsible="accordion">
+								<% user.ships.each do |ship| %>
+									<li>
+										<div class="collapsible-header"><%= ship.name %></div>
+										<div class="collapsible-body"><span>
+
+											<%ship.jobs.each do |job| %>
+												<%= job.description %> <br>
+											<% end %><hr></span>
+										</div>
+    								</li>
+								<% end %><hr>
+							</ul>
+						<% end %></span></div>
+    				</li>
+				<% end %>
+			</ul>
+		<hr></span></div>
+    </li>
+  </ul>
+

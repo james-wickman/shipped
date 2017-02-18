@@ -1,0 +1,17 @@
+<h1>Ships#new</h1>
+<p>Find me in app/views/ships/new.html.erb</p>
+
+
+<%= form_for @ship do |f| -%>
+	<%= f.hidden_field :user_id, value: @user.id %>
+	<%= f.label :name %><br />
+	<%= f.text_field :name %><br>
+	<%= f.label :containers_possible %><br />
+	<%= f.text_field :containers_possible %><br>
+	<%= f.label :location %><br />
+	<%= f.select :location, ['California', 'Florida', 'Texas', 'Toronto', 'Cancun', 'Barcelona'] %><br>
+	<%= f.submit %>
+	
+	  
+	  
+<% end -%>

@@ -1,0 +1,23 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.nav-wrapper {
+	background-color: blue;
+}
+body {
+	background-color: lightblue;
+}
+.ship_buttons {
+	height: 100px;
+	width: 270px;
+	text-align: center;
+	margin: 10px;
+	background-color: lightgrey;
+}
+.new_ship_job {
+	background-color: lightblue;
+}
+#ship_location {
+	display: inline-block;
+}

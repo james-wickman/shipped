@@ -1,0 +1,7 @@
+
+
+$("<%= j render @ship, ship: @ship %>").insertBefore($('.new_form'));
+$('.input_fields > input').each(function () {
+	$(this).val('');
+});
+$('#modal1').modal('close');

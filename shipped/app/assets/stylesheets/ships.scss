@@ -1,0 +1,20 @@
+// Place all the styles related to the ships controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+select {
+	width: 50%;
+	display: block;
+}
+
+form {
+	width: 50%;
+	background-color: lightgrey;
+}
+.button_to {
+	background-color: lightblue;
+}
+#new_ship_modal {
+	color: red;
+}

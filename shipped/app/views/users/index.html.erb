@@ -1,0 +1,18 @@
+<h1>Users#index</h1>
+<div id="errors"></div>
+<%= image_tag @user.avatar.url(:thumb) %> <br>
+<%= @user.first_name %> 
+<%= @user.last_name %><br>
+<%= @user.email %>
+<h2>Ships</h2>
+<hr>
+<%= render 'ships/inside_modal' %>
+<hr>
+
+
+<!-- switch this to an admin page so only they can add and remove jobs  aswell as delete users -->
+<!-- <h2>My Jobs</h2>
+<%= link_to "Add Job", new_job_path %>
+<hr>
+
+ -->

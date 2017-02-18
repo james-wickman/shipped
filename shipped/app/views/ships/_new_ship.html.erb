@@ -1,0 +1,15 @@
+ 
+<%= form_for @ship, remote: true, multipart: true, authenticity_token: true do |f| -%>
+	<%= f.hidden_field :user_id, value: @user.id %>
+	<div class="input_fields">
+	<%= f.label :name %><br />
+	<%= f.text_field :name %><br>
+	<%= f.label :containers_possible %><br />
+	<%= f.text_field :containers_possible %><br>
+	<%= f.file_field :boat_photo %>
+	<%= f.label :location %><br />
+	<%= f.select :location, ['California', 'Florida', 'Texas', 'Toronto', 'Cancun', 'Barcelona'] %><br>
+	</div>
+	<%= f.submit %>
+	  
+<% end -%> 
