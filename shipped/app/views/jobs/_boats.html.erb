@@ -1,16 +1,16 @@
 
 
 <%= form_for @job do |f| -%>
-	<%= f.hidden_field :user_id, value: @admin.id %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
 	<%= f.label :origin %><br />
 	<%= f.select :origin, ['California', 'Florida', 'Texas', 'Toronto', 'Cancun', 'Barcelona'] %><br>
 	<%= f.label :destination %><br />
 	<%= f.select :destination, ['California', 'Florida', 'Texas', 'Toronto', 'Cancun', 'Barcelona'] %><br>
 	<%= f.label :cost %><br />
-	<%= f.text_field :cost %><br>
+	<%= f.number_field :cost %><br>
 	<%= f.label :containers_needed %><br />
 	<%= f.text_field :containers_needed %><br>
-	<%= f.label :description %><br />
+	<%= f.label :description, "Descripton at least 50 char" %><br />
 	<%= f.text_field :description %><br>
 	<%= f.submit %>  
 <% end -%>

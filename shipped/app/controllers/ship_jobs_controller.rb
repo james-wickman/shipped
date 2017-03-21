@@ -6,9 +6,10 @@ class ShipJobsController < ApplicationController
   	@ship_job = ShipJob.new
   	if @ship_job.update_attributes(ship_job_params)
       respond_to do |format|
-      format.js #look for views/users/destroy.js.erb
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+        format.js #look for views/users/destroy.js.erb
+        format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

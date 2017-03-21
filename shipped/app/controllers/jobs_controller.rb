@@ -8,10 +8,12 @@ class JobsController < ApplicationController
   end
 
   def create
-    @admin = current_admin
-    @job = Job.new(job_params)
+    @user = current_user
+    @cost = job_params[:cost]
+    @job = Job.create(cost: @cost, user_id: @user.id, containers_needed: job_params[:containers_needed], description: job_params[:description], origin: job_params[:origin], destination: job_params[:destination])
+    byebug
     if @job.save
-      redirect_to admins_index_path
+      redirect_to users_index_path
     else 
       render "new"
     end

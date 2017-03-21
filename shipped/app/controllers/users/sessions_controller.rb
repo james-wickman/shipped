@@ -23,6 +23,6 @@ before_action :configure_sign_in_params, only: [:create]
     devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   end
   def after_sign_in_path_for(resource)
-    users_index_path
+    redirect_to users_index_path
   end
 end
